@@ -1,2 +1,5 @@
-
-
+<table>
+  <%@columns.each do |column|%>
+    <tr><td><%= column.name %></td><td><%= column.type.to_s %></td></tr>
+  <% end%>
+</table>

@@ -1,5 +1,5 @@
 <table>
   <%@tables.each do |table|%>
-    <tr><td><%=table%></td></tr>
+    <tr><td><%= link_to table, root_path(table_name: table) %></td></tr>
   <% end%>
 </table>
