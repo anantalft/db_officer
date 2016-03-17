@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<!--Container-->
+<div class='page-wrapper'>
+  <!--Header-->
+  <div class='header'>Database Administration
+  </div>
+  <!--End Header-->
+  <!--col 1 area areea-->
+  <div class='main-container col2-left-layout'>
+    <div class='col-left'>
+      <%=render "db_officer/shared/side_bar"%>
+    </div>
+    <div class= 'main'><%= yield %>
+    </div>
+  </div>
+  <!--End col1 areea-->
+  <!--Footer-->
+  <div class='footer'>Footer</div>
+  <!--End Footer -->
+</div>
+<!--End container -->
 </body>
 </html>
