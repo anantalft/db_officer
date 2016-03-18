@@ -1,5 +1,5 @@
 <table>
-  <tr><td><b><%= link_to "New", "#" %></b></td></tr>
+  <tr><td><b><%= link_to "New", new_table_path %></b></td></tr>
   <%@tables.each do |table|%>
     <tr><td><%= link_to table, root_path(table_name: table) %></td></tr>
   <% end%>
