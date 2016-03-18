@@ -1,5 +1,8 @@
 <table>
-  <%@columns.each do |column|%>
-    <tr><td><%= column.name %></td><td><%= column.type.to_s %></td></tr>
+  <% if params[:table_name]%>
+    <%@columns.each do |column|%>
+      <tr><td><%= column.name %></td><td><%= column.type.to_s %></td></tr>
+    <% end%>
   <% end%>
+
 </table>
