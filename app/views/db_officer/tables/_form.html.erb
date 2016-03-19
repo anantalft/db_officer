@@ -1,19 +1,18 @@
-
 <%= form_tag(tables_path, method: "post") do %>
   <%= label_tag(:table_name, "Table Name:") %>
   <%= text_field_tag(:table_name) %>
   <table>
-
     <tr>
-      <th><%= label_tag(:name, "Name") %></th>
-      <th><%= label_tag(:type, "Type")%></th>
+      <th><%= label_tag(:column_name, "Name") %></th>
+      <th><%= label_tag(:column_type, "Type")%></th>
       <th>Actions</th>
     </tr>
     <tr>
-      <td><%= text_field_tag(:name) %></td>
+      <td><%= text_field_tag(:column_name) %></td>
       <td>
-       <%= select_tag(:type, options_for_select([["INT", "int"],["STRING",
-      "string"],["TEXT", "text"]])) %>
+       <%= select_tag(:column_type, options_for_select(DbOfficer::Table
+       .column_types)
+           ) %>
       </td>
       <td>Add</td>
     </tr>

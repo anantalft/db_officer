@@ -140,4 +140,5 @@ PLATFORMS
 
 DEPENDENCIES
   db_officer!
+  pry-rails
   sqlite3

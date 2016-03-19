@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317115921) do
+ActiveRecord::Schema.define(version: 20160319141653) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.integer  "clients"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +31,37 @@ ActiveRecord::Schema.define(version: 20160317115921) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.integer  "member"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "timer", force: :cascade do |t|
+    t.text     "tt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workflows", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
