@@ -1,6 +1,7 @@
 require_dependency "db_officer/application_controller"
 require 'rake'
 require 'pry'
+
 module DbOfficer
   class TablesController < ApplicationController
     def index
@@ -19,6 +20,14 @@ module DbOfficer
 
     def new
       @table = DbOfficer::Table.new
+      # @table.fields.build
+      #
+      # @fields = @table.fields
+      #
+      # respond_to do |format|
+      #   format.html # new.html.erb
+      #   format.json { render json: @table }
+      # end
     end
 
     def migrate
