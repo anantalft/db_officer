@@ -2,7 +2,7 @@ module DbOfficer
   class Tableless < ActiveRecord::Base
 
     def self.column(name, sql_type = nil, default = nil, null = true)
-      columns << ActiveRecord::ConnectionAdapters::Column.new( name.to_s, default,sql_type, null )
+      columns << ActiveRecord::ConnectionAdapters::Column.new( name.to_s,default, nil, sql_type, null )
     end
 
     def self.columns()

@@ -8,6 +8,8 @@ module DbOfficer
     column :field_type, :string
     column :name, :string
     column :required, :string
+    column :id, :integer
+    column :table_id, :integer
 
     def id
       @id ||= 1

@@ -1,6 +1,6 @@
 <%= form_for @table do |f| %>
-  <%= f.label(:table_name, "Table Name:") %>
-  <%= f.text_field(:table_name) %>
+  <%= label(:table_name, "Table Name:") %>
+  <%= text_field_tag(:table_name) %>
   <table>
     <tr>
       <th><%= label_tag(:column_name, "Name") %></th>
@@ -22,6 +22,6 @@
     <%= render 'field_fields', f: builder %>
   <% end %>
 
-  <%#= link_to_add_fields "Add Field", f, :fields %>
+  <%#= link_to_add_fields "Add Field", f, :table_columns %>
   <%= submit_tag("Save") %>
 <% end %>

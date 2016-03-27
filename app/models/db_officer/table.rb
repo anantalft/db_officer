@@ -7,6 +7,7 @@ module DbOfficer
     attr_accessor :id
 
     column :table_name, :string
+    column :id, :integer
     attr_accessor :table_name, :table_columns_attributes
 
 
