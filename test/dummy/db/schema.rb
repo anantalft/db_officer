@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327191724) do
+ActiveRecord::Schema.define(version: 20160327192141) do
 
   create_table "aa", force: :cascade do |t|
     t.integer  "bb"
@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 20160327191724) do
 
   create_table "timer", force: :cascade do |t|
     t.text     "tt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tt", force: :cascade do |t|
+    t.integer  "ff"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
