@@ -27,7 +27,9 @@ module DbOfficer
       ["INTEGER", "integer"],
       ["STRING", "string"],
       ["TEXT", "text"],
-      ["DATETIME", "datetime"]
+      ["DATETIME", "datetime"],
+      ["FLOAT", "float"],
+      ["BOOLEAN", "boolean"],
       ]
     end
   end

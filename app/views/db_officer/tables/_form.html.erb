@@ -1,4 +1,16 @@
 <%= form_for @table do |f| %>
+  <% if @table.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@table.errors.count, "error") %> prohibited this table from being created:</h3>
+
+      <ul>
+        <% @table.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.label(:name, "Table Name:") %>
   <%= f.text_field(:name) %>
 <br><br>
@@ -9,3 +21,10 @@
   <%= link_to_add_fields "Add Column", f, :table_columns %>
   <%= f.submit("Save") %>
 <% end %>
+
+<!--- if @contact.errors.any?-->
+<!--#error_explanation-->
+<!--%h2= "#{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:"-->
+<!--%ul-->
+<!--- @contact.errors.full_messages.each do |msg|-->
+<!--%li= msg-->
