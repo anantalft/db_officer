@@ -8,6 +8,9 @@ module DbOfficer
     end
 
     def create
+      binding.pry
+      @table = Table.new(params[:table])
+      binding.pry
       path = Rails.root.join('db/migrate/')
         File.open(path + Generator.file_name_for_create(params[:table_name]),
         "w") do
@@ -19,7 +22,7 @@ module DbOfficer
     end
 
     def new
-      @table = DbOfficer::Table.new
+      @table = DbOfficer::Table.new(table_columns: [TableColumn.new])
       # @table.fields.build
       #
       # @fields = @table.fields
@@ -38,9 +41,10 @@ module DbOfficer
       %x[rake db:migrate]
     end
 
+    # def table_params
+    #   params.require(:table).permit(:name,:table_columns, table_columns_attributes: [:name, :field_type])
+    # end
+
   end
 end
-
-
-
 
