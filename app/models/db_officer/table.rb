@@ -19,6 +19,7 @@ module DbOfficer
     #   @id ||= 1
     # end
 
+    #https://coderwall.com/p/kvsbfa/nested-forms-with-activemodel-model-objects
     def table_columns_attributes=(attributes)
       @table_columns ||= []
       attributes.each do |i, table_column_params|

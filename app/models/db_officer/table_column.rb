@@ -1,7 +1,7 @@
 module DbOfficer
   class TableColumn
     include ActiveModel::Model
-    attr_accessor :id,:table_id, :name, :phone, :field_type, :_destroy
+    attr_accessor :name,:field_type, :_destroy
     # # include ActiveModel::Model
     # # include ActiveModel::Associations
     # belongs_to :table

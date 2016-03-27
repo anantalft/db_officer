@@ -8,14 +8,13 @@ module DbOfficer
     end
 
     def create
-      binding.pry
       @table = Table.new(params[:table])
       binding.pry
       path = Rails.root.join('db/migrate/')
-        File.open(path + Generator.file_name_for_create(params[:table_name]),
+        File.open(path + Generator.file_name_for_create(@table.name),
         "w") do
         |file|
-          file.write(Generator.create_table_script(params))
+          file.write(Generator.create_table_script(@table))
         end
         run_migration
       redirect_to main_index_path
@@ -23,14 +22,6 @@ module DbOfficer
 
     def new
       @table = DbOfficer::Table.new(table_columns: [TableColumn.new])
-      # @table.fields.build
-      #
-      # @fields = @table.fields
-      #
-      # respond_to do |format|
-      #   format.html # new.html.erb
-      #   format.json { render json: @table }
-      # end
     end
 
     def migrate
@@ -41,9 +32,6 @@ module DbOfficer
       %x[rake db:migrate]
     end
 
-    # def table_params
-    #   params.require(:table).permit(:name,:table_columns, table_columns_attributes: [:name, :field_type])
-    # end
 
   end
 end

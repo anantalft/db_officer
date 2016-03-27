@@ -1,11 +1,11 @@
 module DbOfficer
   class Generator
 
-    def self.create_table_script(table_params)
-"class Create#{table_params[:table_name].capitalize} < ActiveRecord::Migration
+    def self.create_table_script(table)
+"class Create#{table.name.capitalize} < ActiveRecord::Migration
   def change
-    create_table :#{table_params[:table_name].downcase} do |t|
-      t.#{table_params[:column_type]} :#{table_params[:column_name]}
+    create_table :#{table.name.downcase} do |t|
+      t.#{table.table_columns[0].field_type} :#{table.table_columns[0].name}
       t.timestamps
     end
   end
