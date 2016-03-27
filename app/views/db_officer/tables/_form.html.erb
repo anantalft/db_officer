@@ -1,21 +1,6 @@
 <%= form_for @table do |f| %>
   <%= f.label(:name, "Table Name:") %>
   <%= f.text_field(:name) %>
-  <!--<table>-->
-    <!--<tr>-->
-      <!--<th><%#= label_tag(:column_name, "Name") %></th>-->
-      <!--<th><%#= label_tag(:column_type, "Type")%></th>-->
-    <!--</tr>-->
-    <!--<tr>-->
-      <!--<td><%#= text_field_tag(:column_name) %></td>-->
-      <!--<td>-->
-       <%#= select_tag(:column_type, options_for_select(DbOfficer::Table
-#        .column_types)
-           ) %>
-      <!--</td>-->
-      <!--<td>Add</td>-->
-    <!--</tr>-->
-  <!--</table>-->
 <br><br>
   <%= f.fields_for :table_columns do |builder| %>
     <%= render 'field_fields', f: builder %>
