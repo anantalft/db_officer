@@ -43,12 +43,14 @@ module DbOfficer
     end
 
     def check_presence_of_table_column
-      @table_columns.each do |table_column|
-        if table_column._destroy != "1"
-        if table_column.name.eql?('')
-           errors.add(:table_columns, 'name cannot be blank.')
-           break
-        end
+      if @table_columns
+        @table_columns.each do |table_column|
+          if table_column._destroy != "1"
+            if table_column.name.eql?('')
+              errors.add(:table_columns, 'name cannot be blank.')
+              break
+            end
+          end
         end
       end
     end
