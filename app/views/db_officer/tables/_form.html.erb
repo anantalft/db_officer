@@ -1,8 +1,6 @@
 <%= form_for @table do |f| %>
   <% if @table.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@table.errors.count, "error") %> prohibited this table from being created:</h3>
-
       <ul>
         <% @table.errors.full_messages.each do |message| %>
           <li><%= message %></li>

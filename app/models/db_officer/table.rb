@@ -5,6 +5,9 @@ module DbOfficer
 
     attr_accessor :name,:table_columns
     validates :name, presence: true
+    validates :table_columns, presence: true
+    validate :check_for_valid_table_name
+    validate :check_presence_of_table_column
 
     #https://coderwall.com/p/kvsbfa/nested-forms-with-activemodel-model-objects
     def table_columns_attributes=(attributes)
@@ -32,5 +35,27 @@ module DbOfficer
       ["BOOLEAN", "boolean"],
       ]
     end
+
+    private
+    def check_for_valid_table_name
+      errors.add(:name, "already exists. Please provide different name.") if
+      Table.app_tables.include?(name)
+    end
+
+    def check_presence_of_table_column
+      @table_columns.each do |table_column|
+        if table_column._destroy != "1"
+        if table_column.name.eql?('')
+           errors.add(:table_columns, 'name cannot be blank.')
+           break
+        end
+        end
+      end
+    end
+
+    def check_uniqness_of_column_name
+     #TODO
+    end
+
   end
 end

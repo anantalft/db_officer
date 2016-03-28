@@ -10,13 +10,13 @@ module DbOfficer
     def create
       @table = Table.new(params[:table])
       if @table.valid?
-        path = Rails.root.join('db/migrate/')
-        File.open(path + Generator.file_name_for_create(@table.name),
-        "w") do
-        |file|
+        path = Rails.root.join('db/migrate/') + Generator.file_name_for_create(@table.name)
+        File.open(path, "w") do |file|
           file.write(Generator.create_table_script(@table))
         end
-        run_migration
+        if !run_migration(path)
+          render :new
+        end
         redirect_to main_index_path
       else
         render :new
@@ -31,8 +31,14 @@ module DbOfficer
     end
 
     private
-    def run_migration
-      %x[rake db:migrate]
+    def run_migration(file_path)
+     # %x[rake db:migrate]
+      begin
+        ActiveRecord::Migrator.migrate "db/migrate"
+      rescue Exception=> exception
+        File.delete(file_path)
+        @table.errors.add(:name,exception)
+      end
     end
 
 
