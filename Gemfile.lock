@@ -8,6 +8,7 @@ PATH
       pry-rails
       rails (~> 4.2.6)
       rspec-rails (~> 3.0)
+      shoulda-matchers
 
 GEM
   remote: https://rubygems.org/
@@ -131,6 +132,8 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    shoulda-matchers (3.0.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
