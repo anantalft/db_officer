@@ -6,7 +6,7 @@ module DbOfficer
     attr_accessor :name,:table_columns
     validates :name, presence: true
     validates :table_columns, presence: true
-    validate :check_for_valid_table_name
+    validate :record_already_exists?
     validate :check_presence_of_table_column
 
     #https://coderwall.com/p/kvsbfa/nested-forms-with-activemodel-model-objects
@@ -37,7 +37,7 @@ module DbOfficer
     end
 
     private
-    def check_for_valid_table_name
+    def record_already_exists?
       errors.add(:name, "already exists. Please provide different name.") if
       Table.app_tables.include?(name)
     end

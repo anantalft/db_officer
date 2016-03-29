@@ -4,6 +4,7 @@ module DbOfficer
       # if some_complex_logic
       #   record.errors.add :base, 'This record is invalid'
       # end
+      record.errors.add(:base, "already exists. Please provide different name.") if Table.app_tables.include?(record)
     end
   end
 end

@@ -27,9 +27,6 @@ module DbOfficer
       @table = DbOfficer::Table.new(table_columns: [TableColumn.new])
     end
 
-    def migrate
-    end
-
     private
     def run_migration(file_path)
      # %x[rake db:migrate]

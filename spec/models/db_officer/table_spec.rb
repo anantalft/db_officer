@@ -7,6 +7,7 @@ module DbOfficer
 
     describe "Check validation" do
       it { is_expected.to validate_presence_of(:name) }
+      it { is_expected.to validate_presence_of(:table_columns) }
     end
 
     describe ".column_types" do
