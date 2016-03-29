@@ -8,6 +8,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'factory_girl_rails'
+require 'faker'
 # Add additional requires below this line. Rails is not loaded until this point!
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -60,6 +61,7 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+  config.include FactoryGirl::Syntax::Methods
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
