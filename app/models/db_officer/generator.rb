@@ -19,5 +19,11 @@ module DbOfficer
       "#{DateTime.now.strftime("%Y%m%d%H%M%S")}_create_#{table_name.downcase}.rb"
     end
 
+    def self.create_migration_file(table,path)
+      File.open(path, "w") do |file|
+        file.write(Generator.create_table_script(table))
+      end
+    end
+
   end
 end

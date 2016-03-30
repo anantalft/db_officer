@@ -11,9 +11,7 @@ module DbOfficer
       @table = Table.new(params[:table])
       if @table.valid?
         path = Rails.root.join('db/migrate/') + Generator.file_name_for_create(@table.name)
-        File.open(path, "w") do |file|
-          file.write(Generator.create_table_script(@table))
-        end
+        Generator.create_migration_file(@table,path)
         if !run_migration(path)
           render :new
         end
