@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
  # s.test_files = Dir["test/**/*"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.6"
+  s.add_dependency "rails"
 
   s.add_development_dependency "sqlite3"
   s.add_dependency "rspec-rails", "~> 3.0"
@@ -26,6 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "faker"
   s.add_dependency "shoulda-matchers"
   s.add_dependency "pry-rails"
-  s.add_dependency 'jquery-rails', ['>= 3.0', '< 5']
-  s.add_dependency 'jquery-ui-rails', '~> 5.0'
+  s.add_dependency 'jquery-rails'
+  s.add_dependency 'jquery-ui-rails'
 end

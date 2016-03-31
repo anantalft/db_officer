@@ -2,6 +2,6 @@
   <%= f.text_field :name, placeholder: "Column Name" %>
   <%= f.select :field_type, DbOfficer::Table.column_types %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+  <%= link_to "remove", '#', class: "remove_fields icon-delete" %>
 </fieldset>
 

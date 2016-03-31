@@ -1,8 +1,8 @@
-<table>
-  <% if params[:table_name]%>
-    <%@columns.each do |column|%>
-      <tr><td><%= column.name %></td><td><%= column.type.to_s %></td></tr>
-    <% end%>
-  <% end%>
+<% if params[:table_name]%>
+  <%= render 'table_info'%>
+<% else%>
+  <%= render 'tables_info'%>
+<% end%>
 
-</table>
+
+

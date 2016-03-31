@@ -6,7 +6,7 @@ module DbOfficer
     temp =  "class Create#{table.name.capitalize} < ActiveRecord::Migration\n"
     temp+=  "\t def change\n"
     temp+=  "\t\tcreate_table :#{table.name.downcase} do |t|\n"
-    table.table_columns.each do |table_column|
+    Array(table.table_columns).each do |table_column|
       temp+=  "\t\t\t t.#{table_column.field_type} :#{table_column.name}\n"
     end
     temp+=  "\t\t\t t.timestamps \n"
@@ -21,7 +21,7 @@ module DbOfficer
 
     def self.create_migration_file(table,path)
       File.open(path, "w") do |file|
-        file.write(Generator.create_table_script(table))
+        file.write(create_table_script(table))
       end
     end
 

@@ -11,11 +11,12 @@ module DbOfficer
       @table = Table.new(params[:table])
       if @table.valid?
         path = Rails.root.join('db/migrate/') + Generator.file_name_for_create(@table.name)
-        Generator.create_migration_file(@table,path)
+        @table.create_migration_file(path)
         if !run_migration(path)
           render :new
+        else
+          redirect_to root_path(table_name: @table.name)
         end
-        redirect_to main_index_path
       else
         render :new
       end

@@ -17,6 +17,10 @@ module DbOfficer
       end
     end
 
+    def create_migration_file(path)
+      Generator.create_migration_file(self,path)
+    end
+
     def self.app_table_columns(table_name)
       ActiveRecord::Base.connection.columns(table_name)
     end

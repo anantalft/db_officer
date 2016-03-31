@@ -4,10 +4,10 @@ PATH
     db_officer (0.0.1)
       factory_girl_rails
       faker
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
+      jquery-rails
+      jquery-ui-rails
       pry-rails
-      rails (~> 4.2.6)
+      rails
       rspec-rails (~> 3.0)
       shoulda-matchers
 

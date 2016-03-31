@@ -3,6 +3,7 @@ FactoryGirl.define do
     skip_create
     name {Faker::Name.table_name}
     association :table_columns, factory: :table_column
+
   end
 end
 
