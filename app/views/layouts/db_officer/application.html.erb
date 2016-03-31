@@ -14,11 +14,15 @@
   </div>
   <!--End Header-->
   <!--col 1 area areea-->
-  <div class='main-container col2-left-layout'>
+  <div class='main-container'>
     <div class='col-left'>
       <%=render "db_officer/shared/side_bar"%>
     </div>
-    <div class= 'main'><%= yield %>
+
+    <div class= 'main'>
+      <div class="sub-header">
+        <p>Server: Localhost -> Database: <%=ActiveRecord::Base.connection_config[:database] %> -> Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%></p></div>
+      <%= yield %>
     </div>
   </div>
   <!--End col1 areea-->
