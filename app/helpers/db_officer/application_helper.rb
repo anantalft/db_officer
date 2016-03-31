@@ -7,7 +7,7 @@ module DbOfficer
       |builder|
         render("field_fields", f: builder)
       end
-      link_to(name, '#', class: "add_fields", data: {id: id, repi: '][', fields: fields.gsub("\n", "")})
+      link_to(name, '#', class: "add_fields icon-add", data: {id: id, repi: '][', fields: fields.gsub("\n", "")})
     end
   end
 end

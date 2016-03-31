@@ -20,5 +20,18 @@ module DbOfficer
        expect(Generator.create_table_script(table)).to eq(temp)
       end
     end
+
+    describe ".file_name_for_create" do
+      it "generates the file name for creating a table" do
+        expect(Generator.file_name_for_create(table.name)).to end_with ("_create_#{table.name.downcase}.rb")
+      end
+    end
+
+    describe ".create_migration_file" do
+      it "creates the migration file" do
+        Generator.create_migration_file(table,"path")
+        expect(file).to be_an_existing_file
+      end
+    end
   end
 end

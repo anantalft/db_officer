@@ -21,7 +21,7 @@
 
     <div class= 'main'>
       <div class="sub-header">
-        <p>Server: Localhost -> Database: <%=ActiveRecord::Base.connection_config[:database] %> -> Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%></p></div>
+        <p><span class="icon-server"> Server: <%= ActiveRecord::Base.connection_config[:host] ||'localhost' %> </span> <span class="icon-database">Database: <%=ActiveRecord::Base.connection_config[:database] %> </span> <span class="icon-adapter">Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%> </span></p></div>
       <%= yield %>
     </div>
   </div>

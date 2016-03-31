@@ -49,12 +49,16 @@ body { margin: 0;   font-size: 100%;}
   overflow: auto;
   width: 100%;
 }
+tbody{
+
+}
 .flat-table th {
   background-color: #424242;
   color: white;
   font-weight: normal;
   padding: 5px 50px;
   text-align: center;
+  width:1%;
 }
 .flat-table td {
   background-color: #fafafa;
@@ -62,18 +66,52 @@ body { margin: 0;   font-size: 100%;}
   padding: 5px 50px;
 }
 
+.nav-table td{
+  width: 200px;
+}
+
 .icon-delete{
   background: url('icon-delete.png') no-repeat;
   margin-left: 5px;
-  padding-left: 15px;
+  padding-left: 18px;
 }
 .icon-edit{
   background: url('icon-edit.png') no-repeat;
   margin-left: 5px;
-  padding-left: 15px;
+  padding-left: 18px;
+}
+.icon-database{
+  background: url('icon-database.png') no-repeat;
+  margin-left: 5px;
+  padding-left: 18px;
+}
+.icon-server{
+  background: url('icon-server.png') no-repeat;
+  margin-left: 5px;
+  padding-left: 18px;
+}
+.icon-adapter{
+  background: url('icon-adapter.png') no-repeat;
+  margin-left: 5px;
+  padding-left: 18px;
+}
+
+.icon-structure{
+  background: rgba(0, 0, 0, 0) url("icon-structure.png") no-repeat scroll 0 3px;
+  margin-left: 5px;
+  padding-left: 18px;
 }
 .icon-add{
-  background: url('icon-add.gif') no-repeat;
+  background: url('icon-add.png') no-repeat;
   margin-left: 5px;
-  padding-left: 15px;
+  padding-left: 18px;
+  float:left;
+  margin-top:15px;
+  line-height: 15px;
+}
+
+.create-button{
+  float:right;
+  margin-top:10px;
+  padding: 5px 10px;
 }
