@@ -1,19 +1,28 @@
 module DbOfficer
   class Generator
 
-    def self.create_table_script(table_params)
-"class Create#{table_params[:table_name].capitalize} < ActiveRecord::Migration
-  def change
-    create_table :#{table_params[:table_name].downcase} do |t|
-      t.#{table_params[:column_type]} :#{table_params[:column_name]}
-      t.timestamps
+    def self.create_table_script(table)
+    temp = ""
+    temp =  "class Create#{table.name.capitalize} < ActiveRecord::Migration\n"
+    temp+=  "\t def change\n"
+    temp+=  "\t\tcreate_table :#{table.name.downcase} do |t|\n"
+    Array(table.table_columns).each do |table_column|
+      temp+=  "\t\t\t t.#{table_column.field_type} :#{table_column.name}\n"
     end
-  end
-end"
+    temp+=  "\t\t\t t.timestamps \n"
+    temp+= "\t\t end \n"
+    temp+= "\t end \n"
+    temp+= "end \n"
     end
 
     def self.file_name_for_create(table_name)
-      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}_create_#{table_name}.rb"
+      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}_create_#{table_name.downcase}.rb"
+    end
+
+    def self.create_migration_file(table,path)
+      File.open(path, "w") do |file|
+        file.write(create_table_script(table))
+      end
     end
 
   end

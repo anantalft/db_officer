@@ -1,8 +1,11 @@
-<table>
+<div class="main-holder">
   <% if params[:table_name]%>
-    <%@columns.each do |column|%>
-      <tr><td><%= column.name %></td><td><%= column.type.to_s %></td></tr>
-    <% end%>
+    <%= render 'table_info'%>
+  <% else%>
+    <%= render 'tables_info'%>
   <% end%>
+</div>
 
-</table>
+
+
+
