@@ -48,7 +48,7 @@ module DbOfficer
 
     def check_presence_of_table_column
       if @table_columns
-        @table_columns.each do |table_column|
+        Array(@table_columns).each do |table_column|
           if table_column._destroy != "1"
             if table_column.name.eql?('')
               errors.add(:table_columns, 'name cannot be blank.')
@@ -59,9 +59,6 @@ module DbOfficer
       end
     end
 
-    def check_uniqness_of_column_name
-     #TODO
-    end
 
   end
 end

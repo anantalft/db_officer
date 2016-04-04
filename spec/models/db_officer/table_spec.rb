@@ -35,5 +35,31 @@ module DbOfficer
         expect(Table.app_table_columns(db_table)[0].name).to eql(ActiveRecord::Base.connection.columns(db_table)[0].name)
       end
     end
+
+    describe "#create_migration_file" do
+      it "create migration file for the table" do
+        file = Generator.file_name_for_create(table.name)
+        path = Rails.root.join('test/test_files') + file
+        table.create_migration_file(path)
+        expect(File.exist?(path)).to be_truthy
+      end
+    end
+
+    describe "record_already_exists?" do
+      it 'validates that record is unique' do
+        t2 = build(:table, name: 'human')
+        t2.valid?
+        expect(t2.errors[:name].size).to eq(0)
+      end
+    end
+
+    describe "check presence of table columns" do
+      it "validate if table coloumn is empty" do
+        t3 = build(:table, name: 'human')
+        expect(t3.errors[:table_columns].size).to eq(0)
+      end
+    end
+
   end
+
 end

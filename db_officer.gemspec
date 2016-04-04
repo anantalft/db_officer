@@ -19,13 +19,16 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails"
-
-  s.add_development_dependency "sqlite3"
-  s.add_dependency "rspec-rails", "~> 3.0"
-  s.add_dependency "factory_girl_rails"
-  s.add_dependency "faker"
-  s.add_dependency "shoulda-matchers"
-  s.add_dependency "pry-rails"
   s.add_dependency 'jquery-rails'
   s.add_dependency 'jquery-ui-rails'
+
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails", "~> 3.0"
+  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "faker"
+  s.add_development_dependency "shoulda-matchers"
+  s.add_development_dependency "pry-rails"
+  s.add_development_dependency "simplecov"
+  s.add_development_dependency "codeclimate-test-reporter"
+
 end

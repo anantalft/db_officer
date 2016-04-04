@@ -10,14 +10,7 @@ module Faker
     end
 
     def self.column_type
-      [
-      ["INTEGER", "integer"],
-      ["STRING", "string"],
-      ["TEXT", "text"],
-      ["DATETIME", "datetime"],
-      ["FLOAT", "float"],
-      ["BOOLEAN", "boolean"],
-      ].sample
+      ["integer", "string", "text", "datetime", "float", "boolean"].sample
     end
   end
 end

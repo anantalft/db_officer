@@ -29,8 +29,10 @@ module DbOfficer
 
     describe ".create_migration_file" do
       it "creates the migration file" do
-        Generator.create_migration_file(table,"path")
-        expect(file).to be_an_existing_file
+        file = Generator.file_name_for_create(table.name)
+        path = Rails.root.join('test/test_files') + file
+        Generator.create_migration_file(table,path)
+        expect(File.exist?(path)).to be_truthy
       end
     end
   end

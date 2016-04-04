@@ -7,4 +7,5 @@ test/dummy/log/*.log
 test/dummy/tmp/
 test/dummy/.sass-cache
 .idea/workspace.xml
-
+/coverage
+test/dummy/test/test_files

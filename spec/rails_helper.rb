@@ -9,6 +9,24 @@ require 'rspec/rails'
 require 'shoulda-matchers'
 require 'factory_girl_rails'
 require 'faker'
+require 'simplecov'
+require 'codeclimate-test-reporter'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov::Formatter::HTMLFormatter,
+CodeClimate::TestReporter::Formatter
+]
+
+if ENV['CIRCLE_ARTIFACTS']
+  dir = File.join("..", "..", "..", ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.coverage_dir(dir)
+end
+
+SimpleCov.start do
+  add_filter '/config/'
+  add_filter '/spec/'
+  add_filter '/app/mailers/'
+  add_filter '/app/helpers/'
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
