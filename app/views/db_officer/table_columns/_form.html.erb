@@ -1,6 +1,7 @@
 <%= form_for @table, url: table_table_column_path, method: 'patch' do |f| %>
   <br>
-  <h3>Table: <%=@table.name%> <%= link_to "Change","#", class:"icon-edit" %> </h3></h3>
+  <h3>Table: <%=@table.name%> <%= link_to "Change","#", class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %>
+  </h3>
 
   <%= f.fields_for :table_columns do |b| %>
     <%#= render 'tables/field_fields', f: builder %>
