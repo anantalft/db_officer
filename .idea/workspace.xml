@@ -45,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table_columns_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="table_columns_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/db_officer/table_columns_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1158798" vertical-offset="0" max-vertical-offset="1453">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1453">
               <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
@@ -65,10 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/db_officer/table_columns/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="1028">
+            <state vertical-scroll-proportion="0.62650603" vertical-offset="0" max-vertical-offset="1054">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
@@ -118,8 +118,8 @@
       <file leaf-file-name="_table_info.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/db_officer/main/_table_info.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="976">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="40" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1002">
+              <caret line="0" column="88" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -177,10 +177,10 @@
         <option value="$PROJECT_DIR$/app/helpers/db_officer/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/db_officer/tables/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/db_officer/table_columns/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/db_officer/main/_table_info.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/db_officer/table_columns/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/db_officer/table_columns_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/db_officer/generator.rb" />
+        <option value="$PROJECT_DIR$/app/views/db_officer/main/_table_info.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/db_officer/table_columns/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -1108,14 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/db_officer/main/_table_info.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="976">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/db_officer/table_columns/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.74285716" vertical-offset="0" max-vertical-offset="664">
@@ -1128,14 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.342857" vertical-offset="0" max-vertical-offset="1288">
           <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/db_officer/table_columns/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="1028">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1158,8 +1142,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/db_officer/table_columns_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1158798" vertical-offset="0" max-vertical-offset="1453">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1453">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/db_officer/main/_table_info.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1002">
+          <caret line="0" column="88" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/db_officer/table_columns/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62650603" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
