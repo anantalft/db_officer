@@ -1,0 +1,15 @@
+<%= form_for @table, url: table_table_column_path, method: 'patch' do |f| %>
+  <br>
+  <h3>Table: <%=@table.name%></h3>
+
+  <%= f.fields_for :table_columns do |b| %>
+    <%#= render 'tables/field_fields', f: builder %>
+    <fieldset>
+      <%= b.text_field :name, placeholder: "Column Name" %>
+      <%= b.select :field_type, DbOfficer::Table.column_types %>
+      <%= b.hidden_field :_destroy %>
+      <%#= link_to "remove", '#', class: "remove_fields icon-delete" %>
+    </fieldset>
+  <% end %>
+  <%= f.submit "Update",class:"create-button" %>
+<% end%>

@@ -25,5 +25,14 @@ module DbOfficer
       end
     end
 
+    def self.change_table_column(table, table_column, new_table_column)
+      temp = ""
+      temp ="class ChangeColumnRoleName < ActiveRecord::Migration\n"
+      temp+= "\tdef change\n"
+      temp+="\t\trename_column :#{table.name}, :#{table_column.name}, :#{new_table_column}\n"
+      temp+="\tend\n"
+      temp+="end\n"
+    end
+
   end
 end
