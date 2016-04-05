@@ -2,14 +2,9 @@ PATH
   remote: .
   specs:
     db_officer (0.0.1)
-      factory_girl_rails
-      faker
       jquery-rails
       jquery-ui-rails
-      pry-rails
       rails
-      rspec-rails (~> 3.0)
-      shoulda-matchers
 
 GEM
   remote: https://rubygems.org/
@@ -51,9 +46,12 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.1)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -137,6 +135,11 @@ GEM
     rspec-support (3.4.1)
     shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
+    simplecov (0.11.1)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -155,6 +158,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  codeclimate-test-reporter
   db_officer!
+  factory_girl_rails
+  faker
   pry-rails
+  rspec-rails (~> 3.0)
+  shoulda-matchers
+  simplecov
   sqlite3

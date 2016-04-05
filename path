@@ -1,0 +1,8 @@
+class CreateUstafaoore < ActiveRecord::Migration
+	 def change
+		create_table :ustafaoore do |t|
+			 t.["BOOLEAN", "boolean"] :rechariahchiller
+			 t.timestamps 
+		 end 
+	 end 
+end 
