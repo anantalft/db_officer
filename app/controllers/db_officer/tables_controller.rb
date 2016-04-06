@@ -1,7 +1,6 @@
 require_dependency "db_officer/application_controller"
-require 'rake'
 require 'pry'
-
+require_dependency 'db_officer/utils'
 module DbOfficer
   class TablesController < ApplicationController
     def index
@@ -10,9 +9,10 @@ module DbOfficer
     def create
       @table = Table.new(params[:table])
       if @table.valid?
-        path = Rails.root.join('db/migrate/') + Generator.file_name_for_create(@table.name)
+        path = Utils.migration_file_root_path + Generator.file_name_for_create(@table.name)
         @table.create_migration_file(path)
-        if !run_migration(path)
+        if !Utils.run_migration(path,@table)
+          #render new_table_table_column_path()
           render :new
         else
           redirect_to root_path(table_name: @table.name)
@@ -25,18 +25,6 @@ module DbOfficer
     def new
       @table = DbOfficer::Table.new(table_columns: [TableColumn.new])
     end
-
-    private
-    def run_migration(file_path)
-     # %x[rake db:migrate]
-      begin
-        ActiveRecord::Migrator.migrate "db/migrate"
-      rescue Exception=> exception
-        File.delete(file_path)
-        @table.errors.add(:name,exception)
-      end
-    end
-
 
   end
 end
