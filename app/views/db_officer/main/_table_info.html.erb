@@ -1,10 +1,12 @@
-<h3>Table: <%=params[:table_name]%></h3>
+<%= flash[:message]%>
+<h3>Table: <%=params[:table_name]%> <%= link_to "Change","#", class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %></h3>
 <table class="flat-table">
   <tr><th>#</th><th>Name</th><th>Type</th><th colspan="2">Action</th></tr>
   <% count = 0%>
   <%@columns.each do |column|%>
     <tr><td><%= count = count + 1%></td><td><%= column.name %></td><td><%=
         column.type.to_s
-    %></td><td colspan="2"> <%= link_to "Change", '#',class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %></td></tr>
+    %></td><td colspan="2"> <%= link_to "Change", edit_table_table_column_path(table_id: params[:table_name], id:column.name), class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %></td></tr>
   <% end%>
 </table>
+

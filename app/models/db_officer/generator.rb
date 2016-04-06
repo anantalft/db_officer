@@ -1,9 +1,12 @@
+require_dependency 'db_officer/utils'
 module DbOfficer
   class Generator
+    include DbOfficer::Utils
 
     def self.create_table_script(table)
+      class_name = "create_#{table.name}"
     temp = ""
-    temp =  "class Create#{table.name.capitalize} < ActiveRecord::Migration\n"
+    temp =  "class #{Utils.camelize(class_name)} < ActiveRecord::Migration\n"
     temp+=  "\t def change\n"
     temp+=  "\t\tcreate_table :#{table.name.downcase} do |t|\n"
     Array(table.table_columns).each do |table_column|
@@ -16,14 +19,33 @@ module DbOfficer
     end
 
     def self.file_name_for_create(table_name)
-      "#{DateTime.now.strftime("%Y%m%d%H%M%S")}_create_#{table_name.downcase}.rb"
+      "#{Utils.file_name_prefix}create_#{table_name.downcase}.rb"
     end
 
     def self.create_migration_file(table,path)
-      File.open(path, "w") do |file|
-        file.write(create_table_script(table))
-      end
+      Utils.create_file(path,create_table_script(table))
     end
 
+    def self.change_table_column(table_name, column_changed,column_temp)
+      class_name = "#{file_class_name_for_change_col(table_name, column_changed,column_temp)}"
+      temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
+      temp+= "\tdef change\n"
+      temp+= "\t\tchange_column :#{table_name}, :#{column_changed}, :#{column_temp.field_type}\n"
+      temp+="\t\trename_column :#{table_name}, :#{column_changed}, :#{column_temp.name}\n"
+      temp+= "\tend\n"
+      temp+ "end\n"
+    end
+
+    def self.file_name_for_column_change(table_name, column_changed,column_temp)
+      "#{Utils.file_name_prefix}#{file_class_name_for_change_col(table_name, column_changed,column_temp)}.rb"
+    end
+
+    def self.file_class_name_for_change_col(table_name, column_changed,column_temp)
+      "change_#{column_changed}_in_#{table_name.downcase}_to_#{column_temp.name}_#{column_temp.field_type}"
+    end
+
+    def self.create_change_column_file(table_name, column_changed,column_temp, path)
+      Utils.create_file(path,change_table_column(table_name, column_changed,column_temp))
+    end
   end
 end

@@ -49,7 +49,7 @@ module DbOfficer
       it 'validates that record is unique' do
         t2 = build(:table, name: 'human')
         t2.valid?
-        expect(t2.errors[:name].size).to eq(0)
+        expect(t2.errors[:name].size).to eq(1)
       end
     end
 

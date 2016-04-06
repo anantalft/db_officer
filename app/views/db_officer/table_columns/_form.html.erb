@@ -1,0 +1,18 @@
+
+<%= form_for @table_column, url: table_table_column_path, method: 'patch' do |f| %>
+  <br>
+  <%= flash[:message]%>
+  <h3>Table: <%=params["table_id"]%> <%= link_to "Change","#", class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %>
+  </h3>
+
+  <%#= f.fields_for :table_columns do |b| %>
+    <%#= render 'tables/field_fields', f: builder %>
+    <fieldset>
+      <%= f.text_field :name, placeholder: "Column Name" %>
+      <%= f.select :field_type, DbOfficer::Table.column_types %>
+      <%= f.hidden_field :_destroy %>
+      <%#= link_to "remove", '#', class: "remove_fields icon-delete" %>
+    </fieldset>
+  <%# end %>
+  <%= f.submit "Update",class:"create-button" %>
+<% end%>

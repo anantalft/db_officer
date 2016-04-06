@@ -1,7 +1,10 @@
+require_dependency 'db_officer/utils'
 module DbOfficer
   class TableColumn
     include ActiveModel::Model
     include ActiveModel::Validations
+
+
     attr_accessor :name,:field_type, :_destroy
 
     validates :name, presence: true
