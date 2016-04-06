@@ -13,7 +13,7 @@ module DbOfficer
     def self.run_migration(file_path,model_name)
       begin
         ActiveRecord::Migrator.migrate "db/migrate"
-      rescue Exception=> exception
+      rescue StandardError=> exception
         File.delete(file_path)
         model_name.errors.add(:name,exception)
       end

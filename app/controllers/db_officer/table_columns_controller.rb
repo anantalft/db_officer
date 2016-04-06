@@ -20,13 +20,11 @@ module DbOfficer
         @table_column.field_type = col.sql_type
        end
      end
-     @table_column
-     @table = DbOfficer::Table.new(name: table, table_columns: @table_column)
     end
 
     def update
       column_changed = params[:id]
-      column_temp = TableColumn.new (params[:table_column])
+      column_temp = TableColumn.new(params[:table_column])
       if column_temp.valid?
         table_name = params[:table_id]
         path = Utils.migration_file_root_path + Generator.file_name_for_column_change(table_name, column_changed,column_temp)
