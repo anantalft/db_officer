@@ -27,7 +27,7 @@ module DbOfficer
     end
 
     def self.change_table_column(table_name, column_changed,column_temp)
-      class_name = "change_#{column_changed.capitalize}_in_#{table_name.capitalize}"
+      class_name = "#{file_class_name_for_change_col(table_name, column_changed,column_temp)}"
       temp = ""
       temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
       temp+= "\tdef change\n"
@@ -37,8 +37,12 @@ module DbOfficer
       temp+="end\n"
     end
 
-    def self.file_name_for_column_change(table_name, column_changed)
-      "#{Utils.file_name_prefix}change_#{column_changed}_in_#{table_name.downcase}.rb"
+    def self.file_name_for_column_change(table_name, column_changed,column_temp)
+      "#{Utils.file_name_prefix}#{file_class_name_for_change_col(table_name, column_changed,column_temp)}.rb"
+    end
+
+    def self.file_class_name_for_change_col(table_name, column_changed,column_temp)
+      "change_#{column_changed}_in_#{table_name.downcase}_to_#{column_temp.name}_#{column_temp.field_type}"
     end
 
     def self.create_change_column_file(table_name, column_changed,column_temp, path)
