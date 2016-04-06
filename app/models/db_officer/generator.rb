@@ -28,13 +28,12 @@ module DbOfficer
 
     def self.change_table_column(table_name, column_changed,column_temp)
       class_name = "#{file_class_name_for_change_col(table_name, column_changed,column_temp)}"
-      temp = ""
       temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
       temp+= "\tdef change\n"
       temp+= "\t\tchange_column :#{table_name}, :#{column_changed}, :#{column_temp.field_type}\n"
       temp+="\t\trename_column :#{table_name}, :#{column_changed}, :#{column_temp.name}\n"
-      temp+="\tend\n"
-      temp+="end\n"
+      temp+= "\tend\n"
+      temp+ "end\n"
     end
 
     def self.file_name_for_column_change(table_name, column_changed,column_temp)
