@@ -1,4 +1,5 @@
 require_dependency 'db_officer/utils'
+require 'pry'
 module DbOfficer
   class Generator
     include DbOfficer::Utils
@@ -26,6 +27,8 @@ module DbOfficer
       Utils.create_file(path,create_table_script(table))
     end
 
+    ### update column####
+
     def self.change_table_column(table_name, column_changed,column_temp)
       class_name = "#{file_class_name_for_change_col(table_name, column_changed,column_temp)}"
       temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
@@ -46,6 +49,48 @@ module DbOfficer
 
     def self.create_change_column_file(table_name, column_changed,column_temp, path)
       Utils.create_file(path,change_table_column(table_name, column_changed,column_temp))
+    end
+
+    ## edit table ####
+    def self.edit_table_script(table,org_table_columns)
+      count = 0
+      class_name = "#{file_class_name_for_edit_table(table.name)}"
+      temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
+      temp+= "\tdef change\n"
+      Array(table.table_columns).each do |table_column|
+        if table_column._destroy.eql?("")
+          if count > org_table_columns.count-1
+            temp+= "\t\tadd_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
+          else
+            if org_table_columns[count].field_type.downcase != table_column.field_type.downcase  || org_table_columns[count].name.downcase !=
+            table_column.name.downcase
+
+              temp+="\t\trename_column :#{table.name}, :#{org_table_columns[count].name}, :#{table_column.name}\n"
+              temp+= "\t\tchange_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
+            end
+          end
+        else
+          if count <= org_table_columns.count-1
+            temp+= "\t\tremove_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
+          end
+        end
+        count+= 1
+      end
+      temp+= "\tend\n"
+      temp+ "end\n"
+    end
+
+    def self.file_name_edit_table(table_name)
+      "#{Utils.file_name_prefix}edit_table_#{table_name.downcase}.rb"
+    end
+
+    def self.file_class_name_for_edit_table(table)
+      "test_class"
+    end
+
+    def self.create_edit_table_file(path,table,org_table_columns)
+      binding.pry
+      Utils.create_file(path,edit_table_script(table,org_table_columns))
     end
   end
 end

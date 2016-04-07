@@ -25,6 +25,16 @@ module DbOfficer
       ActiveRecord::Base.connection.columns(table_name)
     end
 
+
+    def activerecord_columns
+      table_cols = []
+      table_columns =  Table.app_table_columns(self.name)
+        Array(table_columns).each do |col|
+          table_cols.push(TableColumn.new(name: col.name, field_type: col.sql_type, _destroy:""))
+        end
+      table_cols
+    end
+
     def self.app_tables
       ActiveRecord::Base.connection.tables
     end

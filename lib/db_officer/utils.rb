@@ -1,6 +1,7 @@
 module DbOfficer
   module Utils
     def self.create_file(path,script)
+      binding.pry
       File.open(path, "w") do |file|
         file.write(script)
       end

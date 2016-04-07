@@ -1,6 +1,19 @@
-<h3>Create Table</h3>
+
+<% if params[:action] == 'edit' || params[:action] == 'update' %>
+  <h3>Edit Table</h3>
+<% else %>
+  <h3>Create Table</h3>
+<% end %>
+
+<% if params[:action] == 'new' || params[:action] == 'create'
+     url =  tables_path
+   else
+     method = 'patch'
+     url = table_path(@table.name)
+   end
+%>
 <div class="main-holder">
-  <%= form_for @table do |f| %>
+  <%= form_for @table, url: url, method: method do |f| %>
     <% if @table.errors.any? %>
       <div id="error_explanation">
         <ul>
@@ -11,7 +24,6 @@
       </div>
     <% end %>
 
-    <%#= f.label(:name, "Table Name:") %>
     <%= f.text_field :name, placeholder: "Table Name"  %>
   <br><br>
     <%= f.fields_for :table_columns do |builder| %>
@@ -20,6 +32,11 @@
 
     <%= link_to_add_fields "Add Column", f, :table_columns %>
 
-    <%= f.submit "Create",class:"create-button" %>
+    <% if params[:action] == 'edit' || params[:action] == 'update' %>
+      <%= f.submit "Update", class:"create-button" %>
+    <% else %>
+      <%= f.submit "Create",class:"create-button" %>
+    <% end %>
+    <%= f.submit "Cancel",class:"create-button" %>
   <% end %>
 </div>
