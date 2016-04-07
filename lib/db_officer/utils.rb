@@ -1,7 +1,7 @@
+require 'pry'
 module DbOfficer
   module Utils
     def self.create_file(path,script)
-      binding.pry
       File.open(path, "w") do |file|
         file.write(script)
       end
@@ -15,7 +15,8 @@ module DbOfficer
       begin
         ActiveRecord::Migrator.migrate "db/migrate"
       rescue StandardError=> exception
-        File.delete(file_path)
+        binding.pry
+        #File.delete(file_path)
         model_name.errors.add(:name,exception)
       end
     end
@@ -26,6 +27,10 @@ module DbOfficer
 
     def self.camelize(temp_string)
       temp_string.split('_').collect(&:capitalize).join
+    end
+
+    def self.rand_string
+      3.times.map{ ('a'..'z').to_a.sample }.join
     end
   end
 end

@@ -52,9 +52,9 @@ module DbOfficer
     end
 
     ## edit table ####
-    def self.edit_table_script(table,org_table_columns)
+    def self.edit_table_script(table,org_table_columns,class_suffix)
       count = 0
-      class_name = "#{file_class_name_for_edit_table(table.name)}"
+      class_name = "#{file_class_name_for_edit_table(table.name,class_suffix)}"
       temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
       temp+= "\tdef change\n"
       Array(table.table_columns).each do |table_column|
@@ -62,8 +62,7 @@ module DbOfficer
           if count > org_table_columns.count-1
             temp+= "\t\tadd_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
           else
-            if org_table_columns[count].field_type.downcase != table_column.field_type.downcase  || org_table_columns[count].name.downcase !=
-            table_column.name.downcase
+            if org_table_columns[count].field_type.downcase != table_column.field_type.downcase  || org_table_columns[count].name.downcase != table_column.name.downcase
 
               temp+="\t\trename_column :#{table.name}, :#{org_table_columns[count].name}, :#{table_column.name}\n"
               temp+= "\t\tchange_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
@@ -80,17 +79,17 @@ module DbOfficer
       temp+ "end\n"
     end
 
-    def self.file_name_edit_table(table_name)
-      "#{Utils.file_name_prefix}edit_table_#{table_name.downcase}.rb"
+    def self.file_name_edit_table(table_name,class_suffix)
+      "#{Utils.file_name_prefix}#{file_class_name_for_edit_table(table_name,class_suffix)
+      }.rb"
     end
 
-    def self.file_class_name_for_edit_table(table)
-      "test_class"
+    def self.file_class_name_for_edit_table(table_name,class_suffix)
+      "edit_#{table_name}_columns_#{class_suffix}"
     end
 
-    def self.create_edit_table_file(path,table,org_table_columns)
-      binding.pry
-      Utils.create_file(path,edit_table_script(table,org_table_columns))
+    def self.create_edit_table_file(path,table,org_table_columns,class_suffix)
+      Utils.create_file(path,edit_table_script(table,org_table_columns,class_suffix))
     end
   end
 end
