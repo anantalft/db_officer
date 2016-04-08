@@ -53,6 +53,10 @@ module DbOfficer
         render :edit
       end
     end
+
+    def destroy
+      #TODO
+    end
   end
 end
 

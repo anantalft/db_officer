@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <h3>Table: <%=params["table_id"]%> <%= link_to "Change","#", class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %>
+  <h3>Table: <%=params[:table_id]%>
+    <%= link_to_edit(params[:table_id])%>
+    <%= link_to_delete(params[:table_id]) %></h3>
   </h3>
 
   <%#= f.fields_for :table_columns do |b| %>
