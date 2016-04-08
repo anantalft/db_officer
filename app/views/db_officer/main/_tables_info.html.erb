@@ -3,6 +3,6 @@
   <tr><th>#</th><th>Table</th><th colspan="3">Action</th></tr>
   <% count = 0%>
   <%@tables.each do |table|%>
-    <tr><td><%= count = count + 1%></td><td><%= table %></td><td colspan="3"> <%= link_to "Change", edit_table_path(id: table),class:"icon-edit" %> <%= link_to "Drop", '#',class:"icon-delete" %> <%= link_to "Structure", '#',class:"icon-structure" %></td></tr>
+    <tr><td><%= count = count + 1%></td><td><%= table %></td><td colspan="3"> <%= link_to "Change", edit_table_path(id: table),class:"icon-edit" %> <%= link_to "Drop", '#',class:"icon-delete" %> <%= link_to "Structure", root_path(table_name: table),class:"icon-structure" %></td></tr>
   <% end%>
 </table>

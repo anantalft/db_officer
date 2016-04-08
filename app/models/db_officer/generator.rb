@@ -70,7 +70,7 @@ module DbOfficer
           end
         else
           if count <= org_table_columns.count-1
-            temp+= "\t\tremove_column :#{table.name}, :#{table_column.name}, :#{table_column.field_type}\n"
+            temp+= "\t\tremove_column :#{table.name}, :#{org_table_columns[count].name}, :#{org_table_columns[count].field_type}\n"
           end
         end
         count+= 1

@@ -11,10 +11,10 @@ module DbOfficer
       if @table.valid?
         path = Utils.migration_file_root_path + Generator.file_name_for_create(@table.name)
         @table.create_migration_file(path)
-        if !Utils.run_migration(path,@table)
-          render :new
-        else
+        if Utils.run_migration(path,@table)
           redirect_to root_path(table_name: @table.name)
+        else
+          render :new
         end
       else
         render :new
@@ -36,28 +36,22 @@ module DbOfficer
     end
 
     def update
-      table= Table.new(params[:table])
-      org_table_columns = table.activerecord_columns
-      # file = Generator.file_name_edit_table(table.name)
-      # path = Rails.root.join('test/test_files') + file
-      class_suffix = Utils.rand_string
-      path = Utils.migration_file_root_path + Generator.file_name_edit_table(table.name,class_suffix)
-      Generator.create_edit_table_file(path,table,org_table_columns,class_suffix)
-      if Utils.run_migration(path,table)
-        flash[:message] = "Table successfully updated."
-        redirect_to root_path(table_name: params[:id])
+      @table= Table.new(params[:table])
+      @table.skip_record_exist_validation = true
+      if @table.valid?
+        org_table_columns = @table.activerecord_columns
+        class_suffix = Utils.rand_string
+        path = Utils.migration_file_root_path + Generator.file_name_edit_table(@table.name,class_suffix)
+        Generator.create_edit_table_file(path,@table,org_table_columns, class_suffix)
+        if Utils.run_migration(path,@table)
+          flash[:message] = "Table successfully updated."
+          redirect_to root_path(table_name: params[:id])
+        else
+          render :edit
+        end
       else
-        flash[:message] = "Error"
-        redirect_to edit_table_path(id: params[:id])
+        render :edit
       end
-      # if table.valid?
-      #   path = Utils.migration_file_root_path + Generator.file_name_edit_table(table.name)
-      #   Generator.create_edit_table_file(path,table,org_table_columns)
-      #   binding.pry
-      # else
-      #   #render :edit
-      # end
-      #redirect_to root_path(table_name: params[:id])
     end
   end
 end

@@ -7,9 +7,11 @@
 
 <% if params[:action] == 'new' || params[:action] == 'create'
      url =  tables_path
+     read_only = false
    else
      method = 'patch'
      url = table_path(@table.name)
+     read_only = true
    end
 %>
 <div class="main-holder">
@@ -24,7 +26,7 @@
       </div>
     <% end %>
 
-    <%= f.text_field :name, placeholder: "Table Name"  %>
+    <%= f.text_field :name, placeholder: "Table Name",readonly: read_only  %>
   <br><br>
     <%= f.fields_for :table_columns do |builder| %>
       <%= render 'field_fields', f: builder %>

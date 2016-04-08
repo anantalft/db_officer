@@ -3,10 +3,10 @@ module DbOfficer
     include ActiveModel::Model
     include ActiveModel::Validations
 
-    attr_accessor :name,:table_columns
+    attr_accessor :name,:table_columns,:skip_record_exist_validation
     validates :name, presence: true
     validates :table_columns, presence: true
-    validate :record_already_exists?
+    validate :record_already_exists?, unless: :skip_record_exist_validation
     validate :check_presence_of_table_column
 
     #https://coderwall.com/p/kvsbfa/nested-forms-with-activemodel-model-objects

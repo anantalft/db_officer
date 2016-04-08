@@ -4,10 +4,8 @@ module DbOfficer
   class TableColumnsController < DbOfficer::ApplicationController
 
     def index
-
     end
     def new
-      # @table = DbOfficer::Table.new(name: params["table_id"], table_columns: [TableColumn.new])
     end
 
     def edit
@@ -24,21 +22,19 @@ module DbOfficer
 
     def update
       column_changed = params[:id]
-      column_temp = TableColumn.new(params[:table_column])
-      if column_temp.valid?
+      @table_column = TableColumn.new(params[:table_column])
+      if @table_column.valid?
         table_name = params[:table_id]
-        path = Utils.migration_file_root_path + Generator.file_name_for_column_change(table_name, column_changed,column_temp)
-        Generator.create_change_column_file(table_name, column_changed,column_temp, path)
-        if Utils.run_migration(path,column_temp)
+        path = Utils.migration_file_root_path + Generator.file_name_for_column_change(table_name, column_changed,@table_column)
+        Generator.create_change_column_file(table_name, column_changed,@table_column, path)
+        if Utils.run_migration(path,@table_column)
           flash[:message] = "Table successfully updated."
           redirect_to root_path(table_name: table_name)
         else
-          flash[:message] = "Error"
-          redirect_to edit_table_table_column_path(table_id: params[:table_id], id: params[:id])
+          render :edit
         end
       else
-        flash[:message] = column_temp.errors.full_messages
-        redirect_to edit_table_table_column_path(table_id: params[:table_id], id: params[:id])
+        render :edit
       end
 
     end
