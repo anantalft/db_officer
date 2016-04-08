@@ -1,7 +1,15 @@
 
 <%= form_for @table_column, url: table_table_column_path, method: 'patch' do |f| %>
   <br>
-  <%= flash[:message]%>
+  <% if @table_column.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @table_column.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <h3>Table: <%=params["table_id"]%> <%= link_to "Change","#", class:"icon-edit" %> <%= link_to  "Drop", '#', class:"icon-delete" %>
   </h3>
 
