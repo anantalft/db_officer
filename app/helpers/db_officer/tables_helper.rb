@@ -16,8 +16,8 @@ module DbOfficer
       link_to "Change", edit_table_table_column_path(table_id: table_name, id:column_name), class:"icon-edit"
     end
 
-    def link_to_delete_column()
-      link_to 'Drop',"#", class:"icon-delete", method: :delete, data: {confirm: 'Are you sure?' }
+    def link_to_delete_column(table_column,column_name)
+      link_to 'Drop',table_table_column_path(table_id:table_column,id: column_name), class:"icon-delete", method: :delete, data: {confirm: 'Are you sure?' }
     end
   end
 end

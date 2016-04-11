@@ -15,6 +15,7 @@ module DbOfficer
       begin
         ActiveRecord::Migrator.migrate "db/migrate"
       rescue StandardError=> exception
+        binding.pry
         File.delete(file_path)
         model_name.errors.add(:name,exception)
       end

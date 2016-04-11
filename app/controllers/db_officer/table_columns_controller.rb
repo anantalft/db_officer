@@ -36,7 +36,11 @@ module DbOfficer
       else
         render :edit
       end
+    end
 
+    def destroy
+      binding.pry
+      redirect_to root_path(table_name: table_name)
     end
   end
 end

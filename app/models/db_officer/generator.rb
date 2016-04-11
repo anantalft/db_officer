@@ -4,6 +4,7 @@ module DbOfficer
   class Generator
     include DbOfficer::Utils
 
+    ###create table########################################
     def self.create_table_script(table)
       class_name = "create_#{table.name}"
     temp = ""
@@ -51,7 +52,7 @@ module DbOfficer
       Utils.create_file(path,change_table_column(table_name, column_changed,column_temp))
     end
 
-    ## edit table ####
+    ## edit table #######################################
     def self.edit_table_script(table,org_table_columns,class_suffix)
       count = 0
       class_name = "#{file_class_name_for_edit_table(table.name,class_suffix)}"
@@ -90,6 +91,29 @@ module DbOfficer
 
     def self.create_edit_table_file(path,table,org_table_columns,class_suffix)
       Utils.create_file(path,edit_table_script(table,org_table_columns,class_suffix))
+    end
+
+    #########drop table###################################33
+
+    def self.drop_table_script(table_name)
+      class_name = "#{file_class_name_drop_table(table_name)}"
+      temp ="class #{Utils.camelize(class_name)} <ActiveRecord::Migration\n"
+      temp+= "\tdef change\n"
+      temp+= "\t\tdrop_table :#{table_name}\n"
+      temp+="\tend\n"
+      temp+="end\n"
+    end
+
+    def self.file_name_drop_table(table_name)
+      "#{Utils.file_name_prefix}#{file_class_name_drop_table(table_name)}.rb"
+    end
+
+    def self.file_class_name_drop_table(table_name)
+      "drop_#{table_name}_table"
+    end
+
+    def self.create_drop_table_file(path,table_name)
+      Utils.create_file(path,drop_table_script(table_name))
     end
   end
 end

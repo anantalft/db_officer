@@ -10,7 +10,7 @@
         column.type.to_s
     %></td><td colspan="2">
       <%= link_to_edit_column(params[:table_name],column.name)%>
-      <%= link_to_delete_column %></td></tr>
+      <%= link_to_delete_column(params[:table_name],column.name) %></td></tr>
   <% end%>
 </table>
 
