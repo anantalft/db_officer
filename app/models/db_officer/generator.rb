@@ -101,7 +101,7 @@ module DbOfficer
       temp+= "\tdef change\n"
       temp+= "\t\tdrop_table :#{table_name}\n"
       temp+="\tend\n"
-      temp+="end\n"
+      temp+ "end\n"
     end
 
     def self.file_name_drop_table(table_name)
@@ -123,7 +123,7 @@ module DbOfficer
       temp+= "\tdef change\n"
       temp+= "\t\tremove_column :#{table_name}, :#{column_name}\n"
       temp+="\tend\n"
-      temp+="end\n"
+      temp+ "end\n"
     end
 
     def self.file_name_drop_table_column(table_name,column_name)

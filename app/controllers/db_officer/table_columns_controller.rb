@@ -40,7 +40,6 @@ module DbOfficer
     end
 
     def destroy
-      binding.pry
       table = Table.new(name: params[:table_id])
       column_name = params[:id]
       path = Utils.migration_file_root_path + Generator.file_name_drop_table_column(table.name,column_name)

@@ -55,7 +55,6 @@ module DbOfficer
     end
 
     def destroy
-      table_name = params[:id]
       table = Table.new(name:params[:id])
       path = Utils.migration_file_root_path + Generator.file_name_drop_table(table.name)
       Generator.create_drop_table_file(path,table.name)
