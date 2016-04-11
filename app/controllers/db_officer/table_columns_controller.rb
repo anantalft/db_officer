@@ -1,4 +1,5 @@
 require 'pry'
+require_dependency 'db_officer/utils'
 
 module DbOfficer
   class TableColumnsController < DbOfficer::ApplicationController
@@ -40,7 +41,16 @@ module DbOfficer
 
     def destroy
       binding.pry
-      redirect_to root_path(table_name: table_name)
+      table = Table.new(name: params[:table_id])
+      column_name = params[:id]
+      path = Utils.migration_file_root_path + Generator.file_name_drop_table_column(table.name,column_name)
+      Generator.create_drop_table_column_file(path,table.name,column_name)
+      if Utils.run_migration(path,table)
+        flash[:message] = "Table column successfully deleted."
+      else
+        flash[:message] = table.errors
+      end
+      redirect_to root_path(table_name: table.name)
     end
   end
 end
