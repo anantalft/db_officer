@@ -53,6 +53,19 @@ module DbOfficer
         render :edit
       end
     end
+
+    def destroy
+      table = Table.new(name:params[:id])
+      path = Utils.migration_file_root_path + Generator.file_name_drop_table(table.name)
+      Generator.create_drop_table_file(path,table.name)
+      if Utils.run_migration(path,Table.new(name:table.name))
+        flash[:message] = "Table deleted sucessfully."
+        redirect_to root_path
+      else
+        flash[:message] = table.errors
+        redirect_to root_path
+      end
+    end
   end
 end
 
