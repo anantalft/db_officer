@@ -1,8 +1,7 @@
-<table class="flat-table nav-table">
-  <tr><td><b><%= link_to "Home", root_path %></b></td></tr>
-  <tr><td><b><%= link_to "New", new_table_path %></b></td></tr>
+<ul class="nav">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "New", new_table_path %></li>
   <%@tables.each do |table|%>
-    <tr><td><%= link_to table, root_path(table_name: table) %></td></tr>
+    <li><%= link_to table, root_path(table_name: table) %></li>
   <% end%>
-</table>
-
+</ul>

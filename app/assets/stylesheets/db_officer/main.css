@@ -2,42 +2,83 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-html { font-family: Helvetica, san-serif; color:#333;}
-body { margin: 0;   font-size: 100%;}
+html {height: 100%; font-family: Helvetica, san-serif; color:#333;}
+body { height: 100%;  font-size: 100%;}
+
 .page-wrapper {
-  margin: 0px auto;
   width: 100%;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:after{
+  clear:both;
+  content: "" ;
+  display: block;
+}
+tr:after{
+  content:none;
+}
+
+ul, ol{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
 .header {
-  padding: 10px;
+  padding: 10px 25px;
   background-color: #424242;
   color: white;
   font-weight: bold;
 }
 .sub-header{
   background-color: #e0e0e0;
-  padding: 5px;
+  padding: 10px 15px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.sub-header li {
+  float:left;
+  margin-right: 20px;
 }
 .main-container {
-  height: 200px;
-}
-.main-container .main{
-  height: auto;
-  width:76%;
-  float:right;
-  background-color: #fafafa;
-  padding:0 15px;
-}
-.main-container .col-left{
-  padding:5px 10px;
-  height: auto;
-  width:20%;
-  float:left;
-  background-color: #e0e0e0;
+  height: 100%;
 }
 
-.main-holder {
-  padding: 2%;
+h3{
+  margin-bottom: 5px;
+  font-weight: 100;
+}
+
+.main-container .main{
+  width:80%;
+  float:right;
+  background-color: #fafafa;
+  padding: 12px 15px;
+}
+.main-container .col-left{
+  height: 100%;
+  width:20%;
+  float:left;
+  background-color: red;
+}
+.nav {
+  padding: 0;
+}
+
+.nav li a {
+  display: block;
+  padding:15px 25px;
+}
+
+.nav li a:hover{
+  background: blue;
+
 }
 
 .footer{
@@ -48,62 +89,65 @@ body { margin: 0;   font-size: 100%;}
   display: block;
   overflow: auto;
   width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
 }
-tbody{
 
-}
 .flat-table th {
   background-color: #424242;
   color: white;
   font-weight: normal;
-  padding: 5px 50px;
-  text-align: center;
   width:1%;
+  padding: 5px 15px;
+  text-align: left;
 }
 .flat-table td {
-  background-color: #fafafa;
   color: #6f6f6f;
-  padding: 5px 50px;
+  padding: 5px 15px;
+  border-right: 1px solid #ececec;
 }
-
-.nav-table td{
-  width: 200px;
+.flat-table td a {
+  color: #000;
+  float:left;
+  margin-right: 20px;
+}
+.flat-table td a:hover{
+  text-decoration: underline;
+}
+.flat-table tr:nth-child(odd){
+  background:#d4d4d4;
+}
+.flat-table tr:nth-child(even){
+  background:#fff;
 }
 
 .icon-delete{
   background: url('icon-delete.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
 }
 .icon-edit{
   background: url('icon-edit.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
 }
 .icon-database{
   background: url('icon-database.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
 }
 .icon-server{
   background: url('icon-server.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
 }
 .icon-adapter{
   background: url('icon-adapter.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
 }
 
 .icon-structure{
   background: rgba(0, 0, 0, 0) url("icon-structure.png") no-repeat scroll 0 3px;
-  margin-left: 5px;
   padding-left: 18px;
 }
 .icon-add{
   background: url('icon-add.png') no-repeat;
-  margin-left: 5px;
   padding-left: 18px;
   float:left;
   margin-top:15px;

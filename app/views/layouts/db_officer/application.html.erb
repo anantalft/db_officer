@@ -20,8 +20,12 @@
     </div>
 
     <div class= 'main'>
-      <div class="sub-header">
-        <p><span class="icon-server"> Server: <%= ActiveRecord::Base.connection_config[:host] ||'localhost' %> </span> <span class="icon-database">Database: <%=ActiveRecord::Base.connection_config[:database] %> </span> <span class="icon-adapter">Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%> </span></p></div>
+        <ul class="sub-header">
+          <li class="icon-server"> Server: <%= ActiveRecord::Base.connection_config[:host] ||'localhost' %> </li>
+          <li class="icon-database">Database: <%=ActiveRecord::Base.connection_config[:database]
+          %></li>
+          <li class="icon-adapter"> Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%></li>
+        </ul>
       <%= yield %>
     </div>
   </div>
