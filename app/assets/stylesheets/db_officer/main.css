@@ -2,7 +2,7 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-html { font-family: Arial, Helvetica, san-serif; color:#333;}
+html { font-family: Helvetica, san-serif; color:#333;}
 body { margin: 0;   font-size: 100%;}
 .page-wrapper {
   margin: 0px auto;

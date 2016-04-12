@@ -36,6 +36,14 @@ module DbOfficer
       end
     end
 
+    describe "#activerecord_columns" do
+      it "returns all the columns in the active record table to app columns" do
+        db_table = Table.app_tables[0]
+        table_columns =  Table.app_table_columns(db_table)
+
+      end
+    end
+
     describe "#create_migration_file" do
       it "create migration file for the table" do
         file = Generator.file_name_for_create(table.name)
