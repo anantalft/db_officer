@@ -1,4 +1,3 @@
-require_dependency 'db_officer/utils'
 module DbOfficer
   class TableColumn
     include ActiveModel::Model

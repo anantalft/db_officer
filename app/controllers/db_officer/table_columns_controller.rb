@@ -24,7 +24,6 @@ module DbOfficer
     def update
       column_changed = params[:id]
       @table_column = TableColumn.new(params[:table_column])
-      binding.pry
       if @table_column.valid?
         table_name = params[:table_id]
         path = Utils.migration_file_root_path + Generator.file_name_for_column_change(table_name, column_changed,@table_column)
