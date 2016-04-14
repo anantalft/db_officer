@@ -15,3 +15,22 @@ $(document).on('click', 'form .add_fields', function(event) {
   $(this).before($(this).data('fields').replace(regexp, time));
   return event.preventDefault();
 });
+
+$(document).ready(function () {
+
+  var adjustLeftHeight= function(){
+    var windowHeight = $(window).height();
+    var headerHeight = $(".header").outerHeight();
+    var colLeft = windowHeight - headerHeight;
+    $(".col-left").css("min-height", colLeft);
+    $(".main").css("min-height", colLeft);
+  }
+
+  adjustLeftHeight();
+  $(window).resize(function(){
+    adjustLeftHeight();
+  });
+
+});
+
+

@@ -2,14 +2,14 @@ module DbOfficer
   module TablesHelper
 
     def link_to_delete(table)
-      link_to 'Drop',table_path(id: table), class:"icon-delete", method: :delete, data: {confirm: 'Are you sure?' }
+      link_to ("<i class='fa fa-trash' aria-hidden='true'></i> Drop").html_safe,table_path(id: table), method: :delete, data: {confirm: 'Are you sure?' }
     end
     def link_to_edit(table)
-      link_to "Change", edit_table_path(id: table),class:"icon-edit"
+      link_to ("<i class='fa fa-pencil-square-o' aria-hidden='true'></i> Change").html_safe, edit_table_path(id: table)
     end
 
     def link_to_structure(table)
-      link_to "Structure", root_path(table_name: table),class:"icon-structure"
+      link_to ("<i class='fa fa-table' aria-hidden='true'></i> Structure").html_safe, root_path(table_name: table)
     end
 
     def link_to_edit_column(table_name, column_name)

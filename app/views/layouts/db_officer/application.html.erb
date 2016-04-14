@@ -2,6 +2,9 @@
 <html>
 <head>
   <title>DbOfficer</title>
+  <!--<link rel="stylesheet" href="app/assets/stylesheets/db_officer/font-awesome.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
   <%= stylesheet_link_tag    "db_officer/application", media: "all" %>
   <%= javascript_include_tag "db_officer/application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +13,7 @@
 <!--Container-->
 <div class='page-wrapper'>
   <!--Header-->
-  <div class='header'>Database Administration
+  <div class='header'><a href="#">Database Administration</a>
   </div>
   <!--End Header-->
   <!--col 1 area areea-->
@@ -21,10 +24,12 @@
 
     <div class= 'main'>
         <ul class="sub-header">
-          <li class="icon-server"> Server: <%= ActiveRecord::Base.connection_config[:host] ||'localhost' %> </li>
-          <li class="icon-database">Database: <%=ActiveRecord::Base.connection_config[:database]
+          <li> <i class="fa fa-server" aria-hidden="true"></i>
+             Server: <%= ActiveRecord::Base.connection_config[:host] ||'localhost' %> </li>
+          <li><i class="fa fa-database" aria-hidden="true"></i>
+             Database: <%=ActiveRecord::Base.connection_config[:database]
           %></li>
-          <li class="icon-adapter"> Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%></li>
+          <li> <i class="fa fa-connectdevelop" aria-hidden="true"></i> Adapter: <%=ActiveRecord::Base.connection_config[:adapter]%></li>
         </ul>
       <%= yield %>
     </div>

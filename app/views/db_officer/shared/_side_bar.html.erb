@@ -1,7 +1,9 @@
 <ul class="nav">
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "New", new_table_path %></li>
+  <li><%= link_to ("<span><i class='fa fa-home fa-lg' aria-hidden='true'></i></span> Home").html_safe, root_path %></li>
+  <li><%= link_to ("<span><i class='fa fa-plus fa-lg' aria-hidden='true'></i></span> New").html_safe, new_table_path %></li>
+</ul>
+<ul class="table-menu">
   <%@tables.each do |table|%>
-    <li><%= link_to table, root_path(table_name: table) %></li>
+    <li><%= link_to ("<span><i class='fa fa-table fa-lg' aria-hidden='true'></i></span>" + table ).html_safe, root_path(table_name: table) %></li>
   <% end%>
 </ul>
