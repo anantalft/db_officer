@@ -1,13 +1,20 @@
-<h3>List of Tables</h3>
-<%= flash[:message]%>
-<table class="flat-table">
+<div><h3>List of Tables</h3></div>
+<% if flash[:message] != nil %>
+  <div class="message success">
+    <%= flash[:message]%>
+  </div>
+<% end %>
+
+<table class="global-table">
   <tr><th>S.N.</th><th>Table</th><th colspan="3">Action</th></tr>
   <% count = 0%>
   <%@tables.each do |table|%>
-    <tr><td><%= count = count + 1%></td><td><%= table %></td><td colspan="3">
-      <%=link_to_edit(table) %>
-      <%= link_to_structure(table) %>
-      <%= link_to_delete(table) %>
+    <tr><td><%= count = count + 1%></td><td><%= table %></td><td>
+      <ul>
+        <li><%=link_to_edit(table) %></li>
+        <li><%= link_to_structure(table) %></li>
+        <li class="delete"> <%= link_to_delete(table) %></li>
+      </ul>
     </td></tr>
   <% end%>
 </table>
