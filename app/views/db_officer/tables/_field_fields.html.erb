@@ -1,10 +1,14 @@
-<tr>
-  <td><%= f.text_field :name, placeholder: "Column Name" %></td>
-<td> <%= f.select :field_type, DbOfficer::Table.column_types %></td>
-<td>
-  <ul><li class="delete"> <%= link_to ("<i class='fa fa-trash'
-  aria-hidden='true'></i>Remove").html_safe, '#', class: "remove_fields" %></li>
-  <li><%= f.hidden_field :_destroy %></li></ul>
-</td>
-</tr>
 
+<table>
+  <tbody>
+  <tr>
+    <td><%= f.text_field :name, placeholder: "Column Name" %></td>
+    <td> <%= f.select :field_type, DbOfficer::Table.column_types %></td>
+    <td>
+      <ul><li class="delete"> <%= link_to ("<i class='fa fa-trash'
+  aria-hidden='true'></i>Remove").html_safe, '#', class: "remove_fields" %></li>
+        <li><%= f.hidden_field :_destroy %></li></ul>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -2,17 +2,16 @@
 // All this logic will automatically be available in application.js.
 $(document).on('click', 'form .remove_fields', function(event) {
   $(this).prev('input[type=hidden]').val('1');
-  $(this).closest('fieldset').hide();
+  $(this).closest('table').hide();
   return event.preventDefault();
 });
 
 $(document).on('click', 'form .add_fields', function(event) {
   var regexp, time;
   time = new Date().getTime();
-  //regexp = new RegExp('\\]\\[', 'g');
-  //$(this).before($(this).data('fields').replace(regexp,'][' + time + ']['));
   regexp = new RegExp($(this).data('id'), 'g');
   $(this).before($(this).data('fields').replace(regexp, time));
+  //$('#table-columns').append($(this).data('fields'));
   return event.preventDefault();
 });
 

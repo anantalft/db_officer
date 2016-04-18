@@ -291,3 +291,7 @@ input:focus{
   float:right;
   padding: 5px 10px;
 }
+
+table{
+  width:100%;
+}
