@@ -36,7 +36,7 @@ module DbOfficer
          else
            field_type = col.sql_type
          end
-         
+
          table_columns.push(TableColumn.new(name: col.name, field_type: field_type))
        end
       @table = Table.new(name: table_name, table_columns:table_columns)
