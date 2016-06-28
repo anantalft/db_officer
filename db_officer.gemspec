@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = DbOfficer::VERSION
   s.authors     = ["ananta raj lamichhane"]
   s.email       = ["anantalamichhane1@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of DbOfficer."
-  s.description = "TODO: Description of DbOfficer."
+  s.homepage    = "#"
+  s.summary     = "Summary of DbOfficer."
+  s.description = "Description of DbOfficer."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
