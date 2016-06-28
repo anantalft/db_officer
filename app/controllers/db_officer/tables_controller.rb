@@ -30,7 +30,14 @@ module DbOfficer
        table_cols = Table.app_table_columns(table_name)
        table_columns = []
        Array(table_cols).each do |col|
-         table_columns.push(TableColumn.new(name: col.name, field_type: col.sql_type))
+         field_type = ""
+         if col.sql_type == "varchar"
+           field_type = "string"
+         else
+           field_type = col.sql_type
+         end
+         
+         table_columns.push(TableColumn.new(name: col.name, field_type: field_type))
        end
       @table = Table.new(name: table_name, table_columns:table_columns)
     end
