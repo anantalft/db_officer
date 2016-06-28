@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = DbOfficer::VERSION
   s.authors     = ["ananta raj lamichhane"]
   s.email       = ["anantalamichhane1@gmail.com"]
-  s.homepage    = "#"
+  s.homepage    = "http://anantasite.wordpress.com/"
   s.summary     = "Summary of DbOfficer."
   s.description = "Description of DbOfficer."
   s.license     = "MIT"
