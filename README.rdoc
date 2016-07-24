@@ -18,12 +18,12 @@ To help rails developer handle database administration tasks within the applicat
 
 = Installing
 In your rails application,
-**Step1:** Add following to your Gemfile
+*Step1:* Add following to your Gemfile
        gem `db_officer`
-**Step2:** In routes.rb
+*Step2:* In routes.rb
        mount DbOfficer::Engine, at: "/db_officer"
 
-* Note: '/db_officer' could be any desired name for the application. *
+_Note: '/db_officer' could be any desired name for the application._
 
 **Step3:** View all your database information by going to this url:
 http://localhost:3000/db_officer.
@@ -68,6 +68,6 @@ We look forward to seeing your pull requests!
 
 
 = License
-**db_officer** is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**db_officer** is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details http://www.gnu.org/licenses.
+*db_officer* is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+*db_officer* is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details http://www.gnu.org/licenses.
 
