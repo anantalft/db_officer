@@ -18,14 +18,15 @@ To help rails developer handle database administration tasks within the applicat
 
 = Installing
 In your rails application,
+
 *Step1:* Add following to your Gemfile
        gem `db_officer`
 *Step2:* In routes.rb
        mount DbOfficer::Engine, at: "/db_officer"
 
-_Note: '/db_officer' could be any desired name for the application._
+Note: '/db_officer' could be any desired name for the application.
 
-**Step3:** View all your database information by going to this url:
+*Step3:* View all your database information by going to this url:
 http://localhost:3000/db_officer.
 
 = Future Enhancement
