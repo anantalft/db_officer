@@ -1,12 +1,72 @@
 = Db_Officer
+DB_officer is a rails gem for developer to create, update , delete and view database table using web interface. It is  a database management library.
 
-A rails gem for developer to create, update , delete and view database table
-using web interface. Its a database management library.
+The main features of this gem are as follows:
+- Provides web interface that list all the tables in the application.
+- Can view table structure
+- Create table by generating and running rails migration script
+- Alter table by generating and running rails migration script
+  - Rename table
+  - Rename column
+  - Add column
+  - Delete column
+  - Edit column data type
+- Delete table by generating and running rails migration script
+
+= Purpose
+To help rails developer handle database administration tasks within the application through a user friendly web interface.
 
 = Installing
-gem install db_officer
+In your rails application,
+Step1: Add following to your Gemfile
+       gem `db_officer`
+Step2: In routes.rb
+       mount DbOfficer::Engine, at: "/db_officer"
 
-OR
+* Note: '/db_officer' could be any desired name for the application. *
+
+Step3: View all your database information by going to this url: http://localhost:3000/db_officer.
+
+= Future Enhancement
+We have divided this gem into three different phase. With this release phase 1 (which focus on database data definition language) is completed. We will deliver following features in other two phases:
+
+Phase 2: Work on data manipulation language
+- View table data
+- Edit table data
+- Delete table data
+- Export data in csv
+- Search data
+- Filter by column name
+- Truncate table
+
+Phase 3:
+- Indexing
+- Constraints
+- Table Comments
+- Auto increments
+- SQL query
+- and many more to come
+
+= Help:
+Feel free to reach at me at anantalamichhane1@gmail.com for help regarding db_officer.
+
+= Contributing:
+Db_officer is free and open source rails gem. I encourage and support an active, healthy community that accepts contributions from the public.
+Make sure that you are contributing to any of the following:
+- reportings bugs
+- requesting new features
+- preparing your code for a pull request
+- writing documentation
+- writing specs
+- refactoring code
+- reviewing pull requests
+- verifying issue
+- writing code for future enhancements.
+
+We look forward to seeing your pull requests!
 
 
+= License
+db_officer is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+db_officer is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.see http://www.gnu.org/licenses.
 
