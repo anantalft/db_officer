@@ -8,4 +8,4 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 .idea/
 /coverage
-test/dummy/test/test_files
+test/dummy/test/test_files/
