@@ -2,10 +2,3 @@
 machine:
   environment:
     CODECLIMATE_REPO_TOKEN: 288d5abcd275ea2a5abcd205b36a74abcd27e7faabcd22a61abcd245d3fcabc9 #replace with your token
-  ruby:
-    version: 2.1.1
-
-## Customize dependencies
-dependencies:
-  pre:
-    - gem install bundler --pre
