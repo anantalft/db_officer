@@ -9,3 +9,4 @@ test/dummy/.sass-cache
 .idea/
 /coverage
 test/dummy/test/test_files/*.rb
+test/dummy/test/test_files/*.txt
