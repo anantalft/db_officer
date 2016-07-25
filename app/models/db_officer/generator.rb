@@ -1,8 +1,9 @@
 require_dependency 'db_officer/utils'
 require 'pry'
+
 module DbOfficer
   class Generator
-    include DbOfficer::Utils
+   # include DbOfficer::Utils
 
     ###create table########################################
     def self.create_table_script(table)

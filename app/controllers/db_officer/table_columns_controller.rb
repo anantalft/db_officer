@@ -16,7 +16,12 @@ module DbOfficer
      Array(table_columns).each do |col|
        if col.name == params["id"]
         @table_column.name = col.name
-        @table_column.field_type = col.sql_type
+         if col.sql_type == "varchar"
+           @table_column.field_type = "string"
+         else
+           @table_column.field_type = col.sql_type
+         end
+
        end
      end
     end

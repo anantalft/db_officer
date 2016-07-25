@@ -7,11 +7,11 @@ require "db_officer/version"
 Gem::Specification.new do |s|
   s.name        = "db_officer"
   s.version     = DbOfficer::VERSION
-  s.authors     = ["anantalamichhane"]
+  s.authors     = ["ananta raj lamichhane"]
   s.email       = ["anantalamichhane1@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of DbOfficer."
-  s.description = "TODO: Description of DbOfficer."
+  s.homepage    = "http://anantasite.wordpress.com/"
+  s.summary     = "Summary of DbOfficer."
+  s.description = "Description of DbOfficer."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails"
   s.add_dependency 'jquery-rails'
   s.add_dependency 'jquery-ui-rails'
+  #s.add_dependency 'mime-types', '2.6.2'
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails", "~> 3.0"

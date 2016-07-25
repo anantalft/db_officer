@@ -1,10 +1,10 @@
-
+<div>
 <% if params[:action] == 'edit' || params[:action] == 'update' %>
   <h3>Edit Table</h3>
 <% else %>
   <h3>Create Table</h3>
 <% end %>
-
+</div>
 <% if params[:action] == 'new' || params[:action] == 'create'
      url =  tables_path
      read_only = false
@@ -17,28 +17,48 @@
 <div class="main-holder">
   <%= form_for @table, url: url, method: method do |f| %>
     <% if @table.errors.any? %>
-      <div id="error_explanation">
+      <div class="message error">
+
         <ul>
           <% @table.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i><%= message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
-
+   <div class="table-name">
     <%= f.text_field :name, placeholder: "Table Name",readonly: read_only  %>
-  <br><br>
-    <%= f.fields_for :table_columns do |builder| %>
-      <%= render 'field_fields', f: builder %>
-    <% end %>
+    </div>
+    <table id="table-columns" class="global-table">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+      <% count =0%>
+      <%= f.fields_for :table_columns do |builder| %>
+        <%= render 'field_fields',locals: {count: count}, f: builder %>
+      <% count = count +1%>
+      <% end %>
+      <tr>
+        <td colspan=3>
+          <%= link_to_add_fields "Add Column", f, :table_columns %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
-    <%= link_to_add_fields "Add Column", f, :table_columns %>
-
-    <% if params[:action] == 'edit' || params[:action] == 'update' %>
-      <%= f.submit "Update", class:"create-button" %>
-    <% else %>
-      <%= f.submit "Create",class:"create-button" %>
-    <% end %>
-    <%= f.submit "Cancel",class:"create-button" %>
+    <div class="add-column">
+      <%#= link_to_add_fields "Add Column", f, :table_columns %>
+      <div class="btn-holder">
+        <% if params[:action] == 'edit' || params[:action] == 'update' %>
+          <%= f.submit "Update", class:"create-button" %>
+        <% else %>
+          <%= f.submit "Create",class:"create-button" %>
+        <% end %>
+        <%= f.submit "Cancel",class:"create-button" %>
   <% end %>
+      </div>
+    </div>
+
+
 </div>
